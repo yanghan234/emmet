@@ -2,9 +2,8 @@
 
 """Base emmet model to add default metadata."""
 
-from typing import Literal, Optional, TypeVar
-
 from datetime import datetime
+from typing import Literal, Optional, TypeVar
 
 from pydantic import BaseModel, Field, field_validator
 from pymatgen.core import __version__ as pmg_version
@@ -26,8 +25,8 @@ class EmmetMeta(BaseModel):
         pmg_version, description="The version of pymatgen this document was built with."
     )
 
-    pull_request: Optional[int] = Field(
-        None, description="The pull request number associated with this data build."
+    run_id: Optional[str] = Field(
+        None, description="The run id associated with this data build."
     )
 
     database_version: Optional[str] = Field(
